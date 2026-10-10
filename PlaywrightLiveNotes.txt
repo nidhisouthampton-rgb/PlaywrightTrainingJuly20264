@@ -91,6 +91,9 @@ OR
 
 await page.waitForLoadState('load'):Promise<void>
 Returns when the required load state has been reached.
+
+
+
 Assertion
 ------------------
 - Assertion helps you to validate certain/current state of the application
@@ -131,4 +134,48 @@ Ensures the page is navigated to the given URL.
 
 
 
+==============================================
+10-10-2026
+==================
+-To start session on Msedge/firefox ---we have default in playwright(plyawright.config file)
+
+Manual setup
+------------
+current session will start on msedge
+chromium.launch({channel:'msedge',headless:false});
+run the test from runner/terminal 
+
+Fixtures
+===============
+- To design and test playwright test case enviornment will be provided by fixture
+- Fixture will help to supply some enviornment to testcase
+
+Types
+============
+1.InBuilt Fixtures
+------------------------
+By default playwright support 4 fixtures
+    1.Browser
+    2.Context/BrowserContext
+    3.Page
+    4.Request(API testing)
+
+2.Custom Fixture
+----------------------
+We can design our own fixtures during framework you will learn
+
+
+Navigation commands in Playwright
+================================
+Navigate back
+----------------
+goBack()
+
+NavigateForward
+---------------------
+goForward()
+
+To refresh webpage
+---------------------
+reload()
 

@@ -1,6 +1,6 @@
 
 //add test runner
-import {test} from "@playwright/test";
+import {Browser, chromium, test} from "@playwright/test";
 
 test("Test for Google application launch",async({page})=>{
 
