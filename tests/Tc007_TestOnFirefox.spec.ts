@@ -18,6 +18,7 @@ console.log("Title: "+await page.title());
 
 test("Launch Firefox manually",async()=>{
 
+    //after playwright version 1.57
 let browser:Browser=await firefox.launch({headless:false});
 
 let page:Page=await(await browser.newContext()).newPage();

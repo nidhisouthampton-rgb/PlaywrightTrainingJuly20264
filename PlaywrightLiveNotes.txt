@@ -132,6 +132,10 @@ Ensures the page has the given title.
 ------------------------------------
 Ensures the page is navigated to the given URL.
 
+3.toHaveText():Promise<void>
+------------------------------------
+Ensures the Locator points to an element with the given text.
+
 
 
 ==============================================
@@ -178,4 +182,192 @@ goForward()
 To refresh webpage
 ---------------------
 reload()
+============================================================================
+11-10-2026
+=================
+
+What is WebElement?
+-------------------------
+Any UI element from page like inputbox,link,button,checkbox,radiobutton ...etc are called
+webelement
+
+How to automate webelement?
+===============================
+1.Identify webelement from application
+     -In Playwright to identify element based on css and xpath use locator()
+
+2.perform operation on that element
+
+
+WebElement validation methods
+====================================
+1.isVisible():Promise<boolean>
+Returns whether the element is visible.
+
+2.isEnabled():Promise<boolean>
+Returns whether the element is enabled.
+
+3.isEditable():Promise<boolean>
+Returns whether the element is editable.
+
+Actions On WebElement
+==========================
+- textbox,searchbox,inputbox-----type something---->fill("")
+- button,links,checbox,radiobutton------click------>click()
+-to clear the text--------------------------------->clear()
+-checkbox,radiobutton------------------------------->check() and uncheck()
+
+1.fill():Promise<void>
+Set a value to the input field.
+
+2.click():Promise<void>
+Click an element.
+
+3.check():Promise<void>
+Ensure that checkbox or radio element is checked.
+
+4.uncheck():Promise<void>
+Ensure that checkbox or radio element is unchecked.
+
+How to get the element visible text?
+=======================================
+<a> Visible Text </a>
+
+1.textContent():Promise<string|null>
+Returns the node.textContent.
+
+2.innerText():Promise<string>
+Returns the element.innerText.
+
+Special methods
+=======================
+Multiple similar type of elements
+
+first():Locator
+------------------
+Returns locator to the first matching element.
+
+last():Locator
+-----------------
+Returns locator to the last matching element.
+
+nth(index):Locator
+----------------------
+Returns locator to the n-th matching element. It's zero based, nth(0) selects the first element.
+
+
+
+=====================================================================
+
+AutoWaiting
+====================
+-Playwright support autowating for all actionable commands that is 30sec
+-Playwright support autowating fo assertions that is 5sec
+
+AutoWait for all the Actionalble commands in PW is 30sec
+=======================================================
+-Playwright performs a range of actionability checks on the elements before 
+making actions to ensure these actions behave as expected. 
+-It auto-waits for all the relevant checks to pass and only then performs the requested action.
+-If the required checks do not pass within the given timeout (30sec), 
+action fails with the TimeoutError.
+
+For example, for locator.click(), Playwright will ensure that:
+
+locator resolves to exactly one element
+element is Visible
+element is Stable, as in not animating or completed animation
+element Receives Events, as in not obscured by other elements
+element is Enabled
+
+If element completed and pass theses checks within 30sec then playwright complete click action
+
+
+
+Playwright identify webelement based on Locators
+
+What is locator?
+=====================
+Locator is address of webelement from the webpage
+
+Playwright support 3 strategies to locate the element
+==========================================
+1.Using cssSelector
+2.Using xpath
+3.Playwright Inbuilt locators
+    page.getByRole() to locate by explicit and implicit accessibility attributes.
+    page.getByText() to locate by text content.
+    page.getByLabel() to locate a form control by associated label's text.
+    page.getByPlaceholder() to locate an input by placeholder.
+    page.getByAltText() to locate an element, usually image, by its text alternative.
+    page.getByTitle() to locate an element by its title attribute.
+    page.getByTestId() to locate an element based on its data-testid attribute (other attributes can be configured).
+
+
+
+1.CssSelector
+=====================
+
+CSS: CSS stands for cascading style sheet , this is language used to provide styles to webelement
+
+- CssSelector is locator to identify webelement we use it
+- CssSelector identify webelement based on css properties of that element(like id,classname...etc)
+- CssSelector is faster than xpath
+- CssSelector can travel in only one direction parenttag --->childtag
+- CssSelector does not support any method it support special characters
+
+In Playwright to identify element based on css and xpath use locator()
+Syntax
+============
+1.tagname with id #
+===================
+Syntax:
+=============
+tagname#id
+
+Example
+a#SignIn  OR #SignIn.........1 of 1
+
+
+2.tagname with attribute
+================================
+Syntax:
+tagname[attribute='value']
+
+Example:
+<textarea name="q"></textarea>
+textarea[name='q'].............1 of 1
+
+
+3.tagname with className .(dot operator)
+=========================================
+<button id="submit-id" class="btn btn-default btn-primary">Submit</button>
+
+class="btn btn-default btn-primary"
+        c1      c2        c3                   3classes
+
+Syntax:
+=============
+tagname.className
+
+button.btn.btn-default.btn-primary      1 of 1
+
+OR
+
+button.btn-primary   1of 1
+
+4.tagname with id,classname and attribute
+=================================================
+Syntax:
+==============
+tagname#id.className[attribute='value']
+
+Example
+===========
+a.nav-link[href='sign-out.html']
+
+
+Next session
+=====================
+Explaination on Github is pending.....
 
